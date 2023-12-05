@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data from MySQL</title>
+</head>
+<body>
+    <h1>Data from MySQL Database</h1>
+
+    <?php
+        // Replace with your MySQL database connection details
+        $servername = "localhost";
+        $username = "u417507705_etelvpn";
+        $password = "Malik@1122";
+        $dbname = "u417507705_etelvpn";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // List of tables
+        $tables = array("history", "reseller", "server", "connection_list", "account");
+
+        // Output data for each table
+        foreach ($tables as $table) {
+            echo "<h2>Data from Table: $table</h2>";
+            echo "<ul>";
+
+            // Execute your MySQL query to fetch data
+            $sql = "SELECT * FROM $table";
+            $result = $conn->query($sql);
+
+            // Output data
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<li>";
+                    foreach ($row as $key => $value) {
+                        echo "$key: $value | ";
+                    }
+                    echo "</li>";
+                }
+            } else {
+                echo "<li>No data found</li>";
+            }
+
+            echo "</ul>";
+        }
+
+        // Close connection
+        $conn->close();
+    ?>
+
+</body>
+</html>
