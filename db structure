@@ -23,3 +23,53 @@ connection_list 	server 	varchar 	15
 connection_list 	proc_id 	int 	NULL
 connection_list 	timestamp 	timestamp 	NULL
 account 	id 	int 	NULL 
+
+
+Details
+
+1. history Table:
+
+    Columns:
+        id (int, NULL)
+        reseller (varchar, 255)
+        transaction (text, 65535)
+        _date (varchar, 255)
+        _time (varchar, 255)
+
+2. reseller Table:
+
+    Columns:
+        id (int, NULL)
+        username (varchar, 255)
+        password (varchar, 255)
+        name (varchar, 255)
+        id_allowed (int, NULL)
+        id_created (int, NULL)
+        status (varchar, 255)
+        verify_status (varchar, 10)
+        boss (varchar, 25)
+
+3. server Table:
+
+    Columns:
+        id (int, NULL)
+        serverIP (varchar, 255)
+        serverUrl (varchar, 255)
+        serverName (varchar, 255)
+        isActive (tinyint, NULL)
+
+4. connection_list Table:
+
+    Columns:
+        id (int, NULL)
+        username (varchar, 62)
+        server (varchar, 15)
+        proc_id (int, NULL)
+        timestamp (timestamp, NULL)
+
+5. account Table:
+
+    Columns:
+        id (int, NULL)
+
+Feel free to use this information to manage your database in future developments. If you have any specific tasks or queries you'd like assistance with in the future, please let me know!
